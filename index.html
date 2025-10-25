@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Retro 7-Segment Scientific Calculator — CodeWithUzma</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="app">
+        <div class="calc-wrap">
+            <header class="topbar">
+                <div class="brand">DiaCal <span class="small">CodeWithUzma</span></div>
+
+                <div class="controls">
+                    <button id="toggleScientific" class="ctrl-btn">Scientific</button>
+                    <button id="openHistory" class="ctrl-btn">History</button>
+                </div>
+            </header>
+
+            <section class="calculator retro">
+                <div class="display-panel">
+                    <div id="expression" class="display expression">0</div>
+                    <div id="result" class="display result">0</div>
+                </div>
+
+                <div class="key-rows">
+                    <!-- top function row -->
+                    <div class="row top-row">
+                        <button class="btn fn" data-action="ac">AC</button>
+                        <button class="btn fn" data-action="del">DEL</button>
+                        <button class="btn fn" data-value="(">(</button>
+                        <button class="btn fn" data-value=")">)</button>
+                        <button class="btn op" data-value="%">%</button>
+                    </div>
+
+                    <!-- main keypad -->
+                    <div class="row">
+                        <button class="btn" data-value="7">7</button>
+                        <button class="btn" data-value="8">8</button>
+                        <button class="btn" data-value="9">9</button>
+                        <button class="btn op" data-value="÷">÷</button>
+                        <button class="btn op" data-value="^">^</button>
+                    </div>
+
+                    <div class="row">
+                        <button class="btn" data-value="4">4</button>
+                        <button class="btn" data-value="5">5</button>
+                        <button class="btn" data-value="6">6</button>
+                        <button class="btn op" data-value="×">×</button>
+                        <button class="btn op" data-value="√(" title="sqrt">√</button>
+                    </div>
+
+                    <div class="row">
+                        <button class="btn" data-value="1">1</button>
+                        <button class="btn" data-value="2">2</button>
+                        <button class="btn" data-value="3">3</button>
+                        <button class="btn op" data-value="-">-</button>
+                        <button class="btn op" data-value="π">π</button>
+                    </div>
+
+                    <div class="row bottom-row">
+                        <button class="btn zero" data-value="0">0</button>
+                        <button class="btn" data-value=".">.</button>
+                        <button class="btn op" data-value="+">+</button>
+                        <button class="btn equals" data-action="equals">=</button>
+                    </div>
+                </div>
+
+                <!-- scientific panel (hidden by default, toggled) -->
+                <div id="scientificPanel" class="scientific-panel hidden">
+                    <div class="s-row">
+                        <button class="btn small" data-value="sin(" title="sin()">sin</button>
+                        <button class="btn small" data-value="cos(" title="cos()">cos</button>
+                        <button class="btn small" data-value="tan(" title="tan()">tan</button>
+                        <button class="btn small" data-value="log(" title="log()">log</button>
+                        <button class="btn small" data-value="e" title="e">e</button>
+                    </div>
+                    <div class="s-row">
+                        <button class="btn small" data-value="asin(" title="asin()">asin</button>
+                        <button class="btn small" data-value="acos(" title="acos()">acos</button>
+                        <button class="btn small" data-value="atan(" title="atan()">atan</button>
+                        <button class="btn small" data-value="(" title="(">(</button>
+                        <button class="btn small" data-value=")" title=")">)</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer class="footer">
+                Tip: keyboard supported — numbers, + - * / Enter Backspace Esc. Type function names like
+                <code>sin(</code>.
+            </footer>
+        </div>
+    </main>
+
+    <!-- History modal -->
+    <div id="historyModal" class="modal hidden" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card">
+            <header class="modal-head">
+                <h3>History</h3>
+                <div>
+                    <button id="clearHistory" class="modal-btn">Clear</button>
+                    <button id="closeHistory" class="modal-btn">Close</button>
+                </div>
+            </header>
+            <div id="historyList" class="history-list">
+                <!-- items appended here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
